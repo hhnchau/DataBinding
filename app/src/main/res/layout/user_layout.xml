@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="user"
-            type="com.wave.databindingexample.User" />
+            name="userViewModel"
+            type="com.wave.databindingexample.UserViewModel" />
 
         <variable
             name="handler"
@@ -53,7 +53,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15sp"
                 android:fontFamily="@font/montserrat"
-                android:text="@{user.name, default=Name}"
+                android:text="@{userViewModel.userMutableLiveData.name}"
                 android:textColor="@color/white"
                 android:textSize="32sp" />
 
@@ -64,7 +64,7 @@
                 android:layout_below="@+id/tv_name"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/montserrat"
-                android:text="@{user.address, default=Address}"
+                android:text="@{userViewModel.userMutableLiveData.address}"
                 android:textAllCaps="true"
                 android:textColor="@color/address"
                 android:textSize="14sp" />
@@ -99,7 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text='@{user.followerCount, default="0 K"}'
+                        android:text='@{Integer.toString(userViewModel.userMutableLiveData.followerCount),default="0 K"}'
 
                         android:textColor="@color/white"
                         android:textSize="25sp" />
@@ -138,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text='@{user.followingCount, default="0 K"}'
+                        android:text='@{userViewModel.userMutableLiveData.followingCount, default="0 K"}'
                         android:textColor="@color/white"
                         android:textSize="25sp" />
 
@@ -163,9 +163,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linlay1"
             android:background="@color/colorPrimary"
-            android:onClick="@{() -> handler.onButtonClick(user.name)}"
-            android:text="Follow"
+            android:onClick="@{() -> handler.onButtonClick(userViewModel.userMutableLiveData.name)}"
             android:padding="8dp"
+            android:text="Follow"
             android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnFollow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnFollow"
+            android:background="@color/colorPrimary"
+            android:onClick="@{() -> userViewModel.onChangeUserName(userViewModel.userMutableLiveData.address)}"
+            android:padding="8dp"
+            android:text="ChangeName"
+            android:textColor="@color/white" />
+
     </RelativeLayout>
 </layout>

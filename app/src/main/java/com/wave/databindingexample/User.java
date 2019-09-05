@@ -1,5 +1,7 @@
 package com.wave.databindingexample;
 
+import android.arch.lifecycle.ViewModel;
+
 /**
  * Created on : Mar 16, 2019
  * Author     : AndroidWave
@@ -7,10 +9,10 @@ package com.wave.databindingexample;
 public class User {
     private String name;
     private String address;
-    private String followerCount;
+    private int followerCount;
     private String followingCount;
 
-    public User(String name, String address, String followerCount, String followingCount) {
+    public User(String name, String address, int followerCount, String followingCount) {
         this.name = name;
         this.address = address;
         this.followerCount = followerCount;
@@ -33,11 +35,11 @@ public class User {
         this.address = address;
     }
 
-    public String getFollowerCount() {
+    public int getFollowerCount() {
         return followerCount;
     }
 
-    public void setFollowerCount(String followerCount) {
+    public void setFollowerCount(int followerCount) {
         this.followerCount = followerCount;
     }
 
@@ -48,4 +50,5 @@ public class User {
     public void setFollowingCount(String followingCount) {
         this.followingCount = followingCount;
     }
+
 }

@@ -1,7 +1,7 @@
 package com.wave.databindingexample;
 
-import android.content.Context;
-import android.widget.Toast;
+        import android.content.Context;
+        import android.widget.Toast;
 
 /**
  * Created on : Mar 16, 2019
